@@ -55,8 +55,8 @@ class MandrillTransport extends AbstractTransport {
             'to' => array(),
             'headers' => array('Reply-To' => $this->_config['from']),
             'important' => false,
-            'track_opens' => null,
-            'track_clicks' => null,
+            'track_opens' => true,
+            'track_clicks' => true,
             'auto_text' => null,
             'auto_html' => null,
             'inline_css' => null,
@@ -110,7 +110,7 @@ class MandrillTransport extends AbstractTransport {
             }
         }
 
-        $params = array('message' => $message, "async" => false, "ip_pool" => null, "send_at" => null);
+        $params = array('message' => $message, "async" => true, "ip_pool" => null, "send_at" => null);
 
         return $this->_exec($params);
     }
